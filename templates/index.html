@@ -1,0 +1,287 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/timeline.css' %}">
+<!--<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+ 
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+
+ 
+
+
+	<title>Security Tool</title>
+
+
+</head>
+
+<body>
+
+
+	
+
+	
+<div class="hero">
+    <div class="container">
+        <div class="row hero-section">
+            <div class="col-md-4 mr-0 ml-0">
+                <div class="banner-text animate__animated animate__slideInLeft">
+                    Security Scanner <br>
+                    <span class="subtitle">Is your site hack proof? Let's find out.</span>
+                </div>
+            </div>
+            <div class="col-md-8 mr-0 ml-0">
+                <div class="main-tool animate__animated animate__zoomIn">
+                    <form method="POST" >
+                        {% csrf_token %}
+                        <div class="input-group mb-3">
+                            <input type="text" id="url" type="url" class="form-control form-control-lg" name="url" required placeholder="Enter Url here">
+                            <div class="input-group-append">
+                              <button id="scan" class="btn btn-primary btn-lg" type="submit"><span id="scanText">Scan</span></button>
+                            </div>
+                          </div>
+                    </form>
+                </div>
+
+            </div>
+    
+        </div>
+    </div>
+
+
+
+</div>
+
+
+<!-- result section starts here -->
+
+
+
+
+<hr>
+    {% if mainUrl %}
+        <div class="results" id="url-analysis">
+            <div class="container">
+                <div class="table-tickets">
+                <table class="table ">
+                <thead>
+                    <tr >
+                        <th class="table-heading">Request URL</th>
+                        <th class="table-heading">Status codes</th>
+                        
+                        <th class="table-heading">Redirects</th>
+                        
+                    </tr>
+                </thead>
+                    
+                    <tr>
+                        <td><b id="showHide">></b>&nbsp;<a href="{{mainUrl}}">{{mainUrl}}</a></td>
+                        <td>
+                            
+                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#{{status_code}}">200</button>
+                            {% if isRedirect and numberOfredirect %}
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{status_code}}">301</button>
+                            {% endif %}
+                        </td>
+                        {% if isRedirect %}
+                        <td> {{numberOfredirect}} </td>
+                        {% else %}
+                        <td> 0 </td>
+                        {% endif %}
+
+                    </tr>
+                    
+                </table>
+            </div>
+        </div>
+        
+            <section class="timeline-area" id="timeline-area">
+        
+                
+
+                <div class="timeline-content">
+                    {% if  isRedirect%}
+                    <div class="imp-headings">
+
+        
+                        <div class="status_code item">
+                            <h2>Url:</h2><br>
+                            <p>{{mainUrl}}</p>
+                        </div>
+
+                        <div class="red-url item">
+                            <h2>redirects to:</h2>&nbsp;
+                            <p>{{redirectionURL}}</p>
+                        </div>
+        
+                        <!-- <div class="status_message item">
+                            <h2>Status Message:</h2><br>
+                            {% if isRedirect %}
+                            <p>Moved Permanently</p>
+                            {% else %}
+                            <p>Ok</p>
+                            {% endif %}
+                        </div> -->
+        
+                    </div>
+                    {% endif %}
+        
+                    <div class="header-details">
+                        <h2>Header Details</h2>
+                        <p class="header-content">
+                            {% for key,value in header_info.items %}
+                                <b>{{key}}</b>
+                                <p>{{value}}</p>
+                                <br>
+                            {% endfor %}
+
+        
+
+        
+        
+                        </p>
+                    </div>
+                   
+                </div>
+
+
+
+               
+
+
+               
+            </section>
+           
+        </div>
+    {% endif %}
+
+
+        <!-- Button trigger modal -->
+
+
+  
+		
+
+
+<!-- result section ends here -->
+
+
+<!-- content section start here	 -->
+
+<div class="content container">
+    <div class="row content-row row-1">
+        <div class="box_sec">
+            <div class="col-md-4 ml-10 mr-10" >
+                <div class="box box-1"><img src="{% static 'images/security.jpg' %}"/></div>
+            </div>
+            <div class="col-md-8 ml-10 mr-10">
+                <div class="text_right">
+                
+                    <center class="text-head"><b>Website Blacklist Check</b></center>
+                    <p class="feature-desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error molestiae modi neque! Doloremque doloribus est facere odio quia. Consequatur, doloribus!</p>
+                    <!-- <i class="fa fa-check" aria-hidden="true"></i> -->
+                    <table class="table table-borderless">
+                        <tr>
+                            <td><i class="fa fa-check" aria-hidden="true"></i> Google red warning page on the website</td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i> Google red warning page on the website</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-check" aria-hidden="true"></i> Google red warning page on the website</td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i> Google red warning page on the website</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row content-row row-2">
+        <div class="box_sec2">
+            <div class="col-md-4 ml-10 mr-10">
+                <div class="box box-2"><img src="{% static 'images/security.jpg' %}"/></div>
+            </div>
+            <div class="col-md-8 ml-10 mr-10">
+                <div class="text_left">
+                    <center class="text-head"><b>Website Blacklist Check</b></center>
+                    <p class="feature-desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error molestiae modi neque! Doloremque doloribus est facere odio quia. Consequatur, doloribus!</p>
+                    <!-- <i class="fa fa-check" aria-hidden="true"></i> -->
+                    <table class="table table-borderless">
+                        <tr>
+                            <td><i class="fa fa-check" aria-hidden="true"></i> Google red warning page on the website</td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i> Google red warning page on the website</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-check" aria-hidden="true"></i> Google red warning page on the website</td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i> Google red warning page on the website</td>
+                        </tr>
+                    </table>
+                                
+                </div>
+            </div>
+        </div>
+    </div> 
+    <div class="row content-row row-3">
+        <div class="box_sec">
+            <div class="col-md-4 ml-10 mr-10">
+                <div class="box box-3"><img src="{% static 'images/security.jpg' %}"/></div>
+            </div>
+            <div class="col-md-8 ml-10 mr-10">
+                <div class="text_right">
+                    <center class="text-head"><b>Website Blacklist Check</b></center>
+                    <p class="feature-desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error molestiae modi neque! Doloremque doloribus est facere odio quia. Consequatur, doloribus!</p>
+                    <!-- <i class="fa fa-check" aria-hidden="true"></i> -->
+                    <table class="table table-borderless ">
+                        <tr>
+                            <td><i class="fa fa-check" aria-hidden="true"></i> Google red warning page on the website</td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i> Google red warning page on the website</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-check" aria-hidden="true"></i> Google red warning page on the website</td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i> Google red warning page on the website</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!--content section ends here-->
+
+<!--footer section here-->
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="{% static 'js/script.js' %}"/>
+<script src="{% static 'js/functions.js' %}"></script>
+
+
+
+</body>
+
+
+
+    
+
+
+
+
+</html>

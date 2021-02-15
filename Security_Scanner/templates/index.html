@@ -1,0 +1,301 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    {% load staticfiles %}
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+ 
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+
+ 
+	<link rel="stylesheet" href="{% static './css/style.css' %}">
+
+	<title>Security Tool</title>
+
+	<!--  -->
+    
+    
+
+
+</head>
+
+<body>
+
+
+	
+
+	
+<div class="hero">
+    <div class="container">
+        <div class="row hero-section">
+            <div class="col-md-4 mr-0 ml-0">
+                <div class="banner-text animate__animated animate__slideInLeft">
+                    Security Scanner <br>
+                    <span class="subtitle">Is your site hack proof? Let's find out.</span>
+                </div>
+            </div>
+            <div class="col-md-8 mr-0 ml-0">
+                <div class="main-tool animate__animated animate__zoomIn">
+                    <form method="POST" >
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control form-control-lg" placeholder="Enter Url here">
+                            <div class="input-group-append">
+                              <button class="btn btn-primary btn-lg" type="submit">Scan</button>
+                            </div>
+                          </div>
+                    </form>
+                </div>
+
+            </div>
+    
+        </div>
+    </div>
+
+
+
+</div>
+
+
+<!-- result section starts here -->
+
+
+
+
+<hr>
+        <div class="results">
+            <div class="container">
+               
+                
+                    <div class="table-tickets">
+                    <table class="table ">
+                    <thead>
+                        <tr >
+                            <th class="table-heading">Request URL</th>
+                            <th class="table-heading">Status codes</th>
+                            
+                            <th class="table-heading">Redirects</th>
+                            
+                        </tr>
+                    </thead>
+                        
+                        <tr>
+                            <td><a href="http://cybercrip.com">http://cybercrip.com</a></td>
+                            <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalLong">200</button></td>
+                           
+                            <td> 0</td>
+                        </tr>
+                        
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Button trigger modal -->
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Header Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            Date
+            <br>
+             Thu, 11 Feb 2021 18:20:41 GMT
+            <br>
+            <br>
+            Server
+            <br>
+            Apache
+            <br>
+            <br>
+            Cache-Control
+            <br>
+            no-cache, max-age=600
+            <br>
+            <br>
+            Wpo-Cache-Status
+            <br>
+            cached
+            <br>
+            <br>
+            X-Frame-Options
+            <br>
+            SAMEORIGIN
+            <br>
+            <br>
+            Upgrade
+            <br>
+            
+            h2,h2c
+            <br>
+            <br>
+            Connection
+            <br>
+            Upgrade, close
+            <br>
+            <br>
+            Last-Modified
+            <br>
+            Wed, 10 Feb 2021 18:16:49 GMT
+            <br>
+            <br>
+            Expires
+            <br>
+            Thu, 11 Feb 2021 18:30:41 GMT
+            <br>
+            <br>
+            Vary
+            <br>
+            Accept-Encoding
+            <br>
+            <br>
+            X-Content-Type-Options
+            <br>
+
+            nosniff
+            <br>
+            <br>
+            X-Xss-Protection
+            <br>
+            1; mode=block
+            <br>
+            <br>
+            Transfer-Encoding
+            <br>
+            chunked
+            <br>
+            <br>
+            Content-Type
+            <br>
+            text/html; charset=UTF-8
+            <br>
+            <br>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+        
+		
+
+
+<!-- result section ends here -->
+
+
+<!-- content section start here	 -->
+
+
+<div class="content container">
+    <div class="row content-row row-1">
+        <div class="box_sec">
+            <div class="col-md-4 ml-10 mr-10" >
+                <div class="box box-1"><img src="./images/security.jpg"/></div>
+            </div>
+            <div class="col-md-8 ml-10 mr-10">
+                <div class="text_right">
+                
+                    <center class="text-head"><b>Website Blacklist Check</b></center>
+                    <p class="feature-desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error molestiae modi neque! Doloremque doloribus est facere odio quia. Consequatur, doloribus!</p>
+                    <!-- <i class="fa fa-check" aria-hidden="true"></i> -->
+                    <table class="table table-borderless">
+                        <tr>
+                            <td><i class="fa fa-check" aria-hidden="true"></i> Google red warning page on the website</td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i> Google red warning page on the website</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-check" aria-hidden="true"></i> Google red warning page on the website</td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i> Google red warning page on the website</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row content-row row-2">
+        <div class="box_sec2">
+            <div class="col-md-4 ml-10 mr-10">
+                <div class="box box-2"><img src="./images/security.jpg"/></div>
+            </div>
+            <div class="col-md-8 ml-10 mr-10">
+                <div class="text_left">
+                    <center class="text-head"><b>Website Blacklist Check</b></center>
+                    <p class="feature-desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error molestiae modi neque! Doloremque doloribus est facere odio quia. Consequatur, doloribus!</p>
+                    <!-- <i class="fa fa-check" aria-hidden="true"></i> -->
+                    <table class="table table-borderless">
+                        <tr>
+                            <td><i class="fa fa-check" aria-hidden="true"></i> Google red warning page on the website</td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i> Google red warning page on the website</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-check" aria-hidden="true"></i> Google red warning page on the website</td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i> Google red warning page on the website</td>
+                        </tr>
+                    </table>
+                                
+                </div>
+            </div>
+        </div>
+    </div> 
+    <div class="row content-row row-3">
+        <div class="box_sec">
+            <div class="col-md-4 ml-10 mr-10">
+                <div class="box box-3"><img src="./images/security.jpg"/></div>
+            </div>
+            <div class="col-md-8 ml-10 mr-10">
+                <div class="text_right">
+                    <center class="text-head"><b>Website Blacklist Check</b></center>
+                    <p class="feature-desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error molestiae modi neque! Doloremque doloribus est facere odio quia. Consequatur, doloribus!</p>
+                    <!-- <i class="fa fa-check" aria-hidden="true"></i> -->
+                    <table class="table table-borderless ">
+                        <tr>
+                            <td><i class="fa fa-check" aria-hidden="true"></i> Google red warning page on the website</td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i> Google red warning page on the website</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-check" aria-hidden="true"></i> Google red warning page on the website</td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i> Google red warning page on the website</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--content section ends here-->
+
+<!--footer section here-->
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="{% static './js/script.js' %}" />
+</body>
+
+
+
+</html>
